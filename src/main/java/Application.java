@@ -28,10 +28,18 @@ public class Application {
     }
 
     public static int findVariableEndIndex(String restStaring){
-        return restStaring.indexOf(',');
+        for(int i = 0; i < restStaring.length(); i++){
+            char c = restStaring.charAt(i);
+            if (c == ',' || c == ';'){
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public static String getVariable(String restString, int startIndex, int endIndex){
         return restString.substring(startIndex, endIndex);
     }
+
 }
