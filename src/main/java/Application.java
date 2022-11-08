@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Application {
     public static void main(String[] args) {
 
@@ -61,4 +63,25 @@ public class Application {
         return variable.substring(variableTypeStartIndex);
     }
 
+    public static String reverseVariableType(String variableType){
+        List<Character> temp = new ArrayList<>();
+        int variableTypeLength = variableType.length();
+
+        for(int i = variableTypeLength - 1; i >=0 ; i--){
+            char c = variableType.charAt(i);
+            if(c == '['){
+                c = ']';
+            } else if(c == ']'){
+                c = '[';
+            }
+            temp.add(c);
+        }
+
+        String reversedVariableType = "";
+        for(char c: temp){
+            reversedVariableType += c;
+        }
+
+        return reversedVariableType;
+    }
 }
