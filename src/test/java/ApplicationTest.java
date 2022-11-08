@@ -1,15 +1,14 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.*;
 
 public class ApplicationTest {
     @DisplayName("공통타입 구분자 인덱스 위치 반환 테스트")
     @Nested
-    class findCommonTypeDivisionIndexTest {
+    class findCommonTypeDivisionIndexTest{
         @Test
-        void case1() {
+        void case1(){
             String input = "int& a*[]&, b, c*;";
             int result = 4;
 
@@ -26,8 +25,8 @@ public class ApplicationTest {
             int commonTypeDivisionIndex = 4;
             String result = "int&";
 
-            assertThat(Application.getCommonType(commonTypeDivisionIndex)
-                    .isEqualTo(result));
+            assertThat(Application.getCommonType(commonTypeDivisionIndex))
+                    .isEqualTo(result);
         }
     }
 }
