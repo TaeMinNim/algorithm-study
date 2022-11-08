@@ -124,5 +124,17 @@ public class ApplicationTest {
                         .isEqualTo(result);
             }
         }
+
+        class getVariableType{
+            @Test
+            void case1(){
+                String variable = "a*[]&";
+                int variableTypeStartIndex = 1;
+                String result = "*[]&";
+
+                assertThat(Application.getVariableType(variable, variableTypeStartIndex))
+                        .isEqualTo(result);
+            }
+        }
     }
 }
