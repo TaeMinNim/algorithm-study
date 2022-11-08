@@ -55,7 +55,7 @@
 
 `int findVariableEndIndex(String, restString)`
 - 변수 선언이 끝나는 지점의 인덱스를 반환한다
-  - `,` 가 있는 인덱스
+  - `,`, `;` 가 있는 인덱스
 
 `String getVariable(String restString, int startIndex, int endIndex)`
 - 변수 선언부를 반환한다
