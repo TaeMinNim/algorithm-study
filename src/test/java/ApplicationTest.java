@@ -60,5 +60,18 @@ public class ApplicationTest {
                         .isEqualTo(result);
             }
         }
+
+        @Nested
+        class findVariableEndIndexTest{
+            @Test
+            void case1(){
+                String restString = " a*[]&, b, c*;";
+                int startIndex = 1;
+                int result = 6;
+
+                assertThat(Application.findVariableEndIndex(restString, startIndex))
+                        .isEqualTo(result);
+            }
+        }
     }
 }
