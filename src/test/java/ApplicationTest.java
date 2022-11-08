@@ -138,4 +138,19 @@ public class ApplicationTest {
             }
         }
     }
+
+    @DisplayName("읽어들인 변수형을 뒤집는다")
+    @Nested
+    class reverseTest{
+        @Nested
+        class reverseVariableTypeTest{
+            @Test
+            void case1(){
+                String variableType = "*[]&";
+                String result = "&[]*";
+                assertThat(Application.reverseVariableType(variableType))
+                        .isEqualTo(result);
+            }
+        }
+    }
 }
