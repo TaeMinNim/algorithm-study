@@ -30,4 +30,19 @@ public class ApplicationTest {
                     .isEqualTo(result);
         }
     }
+
+    @DisplayName("공통 변수형 부분 제외, 나머지 문자열 반환 테스트")
+    @Nested
+    class getRestStringTest{
+        @Test
+        void case1(){
+            int commonTypeDivisionIndex = 4;
+            String input = "int& a*[]&, b, c*;";
+            String result = " a*[]&, b, c*;";
+
+            assertThat(Application.getRestString(input, commonTypeDivisionIndex))
+                    .isEqaulTo(result);
+        }
+    }
+
 }
