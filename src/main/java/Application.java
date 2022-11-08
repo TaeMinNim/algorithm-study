@@ -84,4 +84,8 @@ public class Application {
 
         return reversedVariableType;
     }
+
+    public static String combineVariable(String commonType, String variableType, String variableName){
+        return String.format("%s%s %s;",commonType, variableType, variableName);
+    }
 }
