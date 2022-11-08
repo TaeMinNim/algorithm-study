@@ -11,4 +11,8 @@ public class Application {
     public static String getCommonType(String input, int commonTypeDivisionIndex){
         return input.substring(0, commonTypeDivisionIndex);
     }
+
+    public static String getRestString(String input, int commonTypeDivisionIndex){
+        return input.substring(commonTypeDivisionIndex);
+    }
 }
