@@ -43,12 +43,6 @@
 `int findCommonTypeDivisionIndex(String input)`
 - 공통 타입이 되는 부분을 구분하는, 공백 자리의 인덱스를 반환한다
 
-`String getCommonType(String input, int commonTypeDivisionIndex)`
-- 구분 인덱스를 기준으로 처음부터 문자열을 잘라서 공통 변수형 부분을 반환한다
-
-`String getRestString(String input, int commonTypeDivisionIndex)`
-- 공통 변수형 부분을 잘라내고 남은 나머지 부분을 반환한다
-
 ####문자를 읽어들이다 공백 이외의 문자가 발견되면 `,`가 나오기 전까지가 선언하는 변수이다
 `int findVariableStartIndex(String restString)`
 - 변수 선언이 시작되는 지점의 인덱스를 반환한다
@@ -63,12 +57,6 @@
 ####`&`, `[]`, `*`이 나올때까지 문자를 읽는다. `&`, `[]`, `*`을 찾으면 그 부분을 기준으로 변수명, 변수형을 나눈다
 `int findVariableTypeStartIndex(String variable)`
 - 변수명 부분의 인덱스를 반환한다
-
-`String getVariableName(String variable, int variableTypeStartIndex)`
-- 변수명을 얻는다
-
-`String getVariableType(String variable, int variableTypeStartIndex)`
-- 변수형을 얻는다
 
 ####읽어들인 변수형을 뒤집는다
 `String reverseVariableType(String variableType)`
