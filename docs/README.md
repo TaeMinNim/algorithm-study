@@ -75,4 +75,3 @@
 
 ####공통 자료형 + 변수형 + 변수명으로 하나의 선언으로 바꾼다
 `String combineVariable(String commonType, String variableType, String variableName)`
-
