@@ -47,14 +47,6 @@ public class Application {
         return divisionIndex;
     }
 
-    public static String getCommonType(String input, int commonTypeDivisionIndex) {
-        return input.substring(0, commonTypeDivisionIndex);
-    }
-
-    public static String getRestString(String input, int commonTypeDivisionIndex) {
-        return input.substring(commonTypeDivisionIndex);
-    }
-
     public static int findVariableStartIndex(String restString) {
         for (int i = 0; i < restString.length(); i++) {
             char c = restString.charAt(i);
@@ -90,14 +82,6 @@ public class Application {
         }
 
         return 0;
-    }
-
-    public static String getVariableName(String variable, int variableTypeStartIndex) {
-        return variable.substring(0, variableTypeStartIndex);
-    }
-
-    public static String getVariableType(String variable, int variableTypeStartIndex) {
-        return variable.substring(variableTypeStartIndex);
     }
 
     public static String reverseVariableType(String variableType) {
