@@ -113,7 +113,7 @@ public class ApplicationTest {
         }
 
         @Nested
-        class getVariableName{
+        class getVariableNameTest{
             @Test
             void case1(){
                 String variable = "a*[]&";
@@ -125,7 +125,8 @@ public class ApplicationTest {
             }
         }
 
-        class getVariableType{
+        @Nested
+        class getVariableTypeTest{
             @Test
             void case1(){
                 String variable = "a*[]&";
