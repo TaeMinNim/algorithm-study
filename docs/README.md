@@ -61,13 +61,13 @@
 - 변수 선언부를 반환한다
 
 ####`&`, `[]`, `*`이 나올때까지 문자를 읽는다. `&`, `[]`, `*`을 찾으면 그 부분을 기준으로 변수명, 변수형을 나눈다
-`int findVariableNameIndex(String variable)`
+`int findVariableTypeStartIndex(String variable)`
 - 변수명 부분의 인덱스를 반환한다
 
-`String getVariableName(int variableNameIndex)`
+`String getVariableName(int variableTypeStartIndex)`
 - 변수명을 얻는다
 
-`String getVariableType(int variableNameIndex)`
+`String getVariableType(int variableTypeStartIndex)`
 - 변수형을 얻는다
 
 ####읽어들인 변수형을 뒤집는다
