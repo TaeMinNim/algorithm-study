@@ -10,7 +10,7 @@ public class ApplicationTest {
         @Test
         void case1(){
             String input = "int& a*[]&, b, c*;";
-            assertThat(ApplicationCommonTypeDivisionIndex(input)).isEqualTo(4);
+            assertThat(Application.findCommonTypeDivisionIndex(input)).isEqualTo(4);
         }
     }
 }
