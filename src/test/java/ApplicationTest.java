@@ -111,5 +111,18 @@ public class ApplicationTest {
                         .isEqualTo(result);
             }
         }
+
+        @Nested
+        class getVariableName{
+            @Test
+            void case1(){
+                String variable = "a*[]&";
+                int variableTypeStartIndex = 1;
+                String result = "a";
+
+                assertThat(Application.getVariableName(variable, variableTypeStartIndex))
+                        .isEqualTo(result);
+            }
+        }
     }
 }
