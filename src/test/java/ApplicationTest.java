@@ -95,20 +95,20 @@ public class ApplicationTest {
                         .isEqualTo(result);
             }
         }
+    }
 
-        @DisplayName("`&`, `[]`, `*`이 나올때까지 문자를 읽는다. `&`, `[]`, `*`을 찾으면 그 부분을 기준으로 변수명, 변수형을 나눈다")
+    @DisplayName("`&`, `[]`, `*`이 나올때까지 문자를 읽는다. `&`, `[]`, `*`을 찾으면 그 부분을 기준으로 변수명, 변수형을 나눈다")
+    @Nested
+    class findTypeTest{
         @Nested
-        class findTypeTest{
-            @Nested
-            class findVariableTypeStartIndexTest{
-                @Test
-                void case1(){
-                    String variable = "a*[]&";
-                    int result = 1;
+        class findVariableTypeStartIndexTest{
+            @Test
+            void case1(){
+                String variable = "a*[]&";
+                int result = 1;
 
-                    assertThat(Application.findVariableTypeStartIndex(variable))
-                            .isEqualTo(result);
-                }
+                assertThat(Application.findVariableTypeStartIndex(variable))
+                        .isEqualTo(result);
             }
         }
     }
