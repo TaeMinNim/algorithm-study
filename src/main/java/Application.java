@@ -21,7 +21,7 @@ public class Application {
     public static int findVariableStartIndex(String restString){
         for (int i = 0; i < restString.length(); i++){
             char c = restString.charAt(i);
-            if (c != ' '){
+            if (c != ' ' && c != ','){
                 return i;
             }
         }
