@@ -64,10 +64,10 @@
 `int findVariableTypeStartIndex(String variable)`
 - 변수명 부분의 인덱스를 반환한다
 
-`String getVariableName(int variableTypeStartIndex)`
+`String getVariableName(String variable, int variableTypeStartIndex)`
 - 변수명을 얻는다
 
-`String getVariableType(int variableTypeStartIndex)`
+`String getVariableType(String variable, int variableTypeStartIndex)`
 - 변수형을 얻는다
 
 ####읽어들인 변수형을 뒤집는다
