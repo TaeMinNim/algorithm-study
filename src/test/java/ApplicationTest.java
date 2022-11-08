@@ -44,4 +44,17 @@ public class ApplicationTest {
                     .isEqualTo(result);
         }
     }
+
+    @DisplayName("변수 선언 시작점 찾기 메소드 테스트")
+    @Nested
+    class findVariableStartIndexTest{
+        @Test
+        void case1(){
+            String restString = " a*[]&, b, c*;";
+            int result = 1;
+
+            assertThat(Application.findVariableStartIndex(restString))
+                    .isEqualTo(result);
+        }
+    }
 }
