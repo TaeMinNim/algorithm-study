@@ -153,4 +153,22 @@ public class ApplicationTest {
             }
         }
     }
+
+    @DisplayName("공통 자료형 + 변수형 + 변수명으로 하나의 선언으로 바꾼다")
+    @Nested
+    class combineTest{
+        @Nested
+        class combineVariableTest{
+            @Test
+            void case1(){
+                String commonType = "int&";
+                String variableType = "&[]*";
+                String variableName = "a";
+
+                String result = "int&&[]* a;";
+                assertThat(Application.combineVariable(commonType, variableType, variableName))
+                        .isEqualTo(result);
+            }
+        }
+    }
 }
