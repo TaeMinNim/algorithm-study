@@ -59,6 +59,15 @@ public class ApplicationTest {
                 assertThat(Application.findVariableStartIndex(restString))
                         .isEqualTo(result);
             }
+
+            @Test
+            void case2() {
+                String restString = ", b, c*;";
+                int result = 2;
+
+                assertThat(Application.findVariableStartIndex(restString))
+                        .isEqualTo(result);
+            }
         }
 
         @Nested
