@@ -16,13 +16,12 @@ public class Application {
             int startIndex = findVariableStartIndex(restString);
             int endIndex = findVariableEndIndex(restString);
             String variable = getVariable(restString, startIndex, endIndex);
-
+            System.out.println(variable);
             restString = restString.substring(endIndex);
-            System.out.println(restString);
 
             int variableTypeStartIndex = findVariableTypeStartIndex(variable);
-            String variableType = getVariableType(variable, variableTypeStartIndex);
-            String variableName = getVariableName(variable, variableTypeStartIndex);
+            String variableType = variable.substring(0, variableTypeStartIndex);
+            String variableName = variable.substring(variableTypeStartIndex);
             variableType = reverseVariableType(variableType);
 
             oneLineVariableList.add(combineVariable(commonType, variableType, variableName));
@@ -55,7 +54,7 @@ public class Application {
     }
 
     public static int findVariableEndIndex(String restStaring){
-        for(int i = 0; i < restStaring.length(); i++){
+        for(int i = 1; i < restStaring.length(); i++){
             char c = restStaring.charAt(i);
             if (c == ',' || c == ';'){
                 return i;
@@ -77,7 +76,7 @@ public class Application {
             }
         }
 
-        return -1;
+        return 0;
     }
 
     public static String getVariableName(String variable, int variableTypeStartIndex){
