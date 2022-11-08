@@ -18,32 +18,6 @@ public class ApplicationTest {
                         .isEqualTo(result);
             }
         }
-
-        @Nested
-        class getCommonTypeTest {
-            @Test
-            void case1() {
-                int commonTypeDivisionIndex = 4;
-                String input = "int& a*[]&, b, c*;";
-                String result = "int&";
-
-                assertThat(Application.getCommonType(input, commonTypeDivisionIndex))
-                        .isEqualTo(result);
-            }
-        }
-
-        @Nested
-        class getRestString {
-            @Test
-            void case1() {
-                int commonTypeDivisionIndex = 4;
-                String input = "int& a*[]&, b, c*;";
-                String result = " a*[]&, b, c*;";
-
-                assertThat(Application.getRestString(input, commonTypeDivisionIndex))
-                        .isEqualTo(result);
-            }
-        }
     }
 
     @DisplayName("문자를 읽어들이다 공백 이외의 문자가 발견되면 `,`가 나오기 전까지가 선언하는 변수이다")
@@ -144,32 +118,6 @@ public class ApplicationTest {
                 int result = 0;
 
                 assertThat(Application.findVariableTypeStartIndex(variable))
-                        .isEqualTo(result);
-            }
-        }
-
-        @Nested
-        class getVariableNameTest{
-            @Test
-            void case1(){
-                String variable = "a*[]&";
-                int variableTypeStartIndex = 1;
-                String result = "a";
-
-                assertThat(Application.getVariableName(variable, variableTypeStartIndex))
-                        .isEqualTo(result);
-            }
-        }
-
-        @Nested
-        class getVariableTypeTest{
-            @Test
-            void case1(){
-                String variable = "a*[]&";
-                int variableTypeStartIndex = 1;
-                String result = "*[]&";
-
-                assertThat(Application.getVariableType(variable, variableTypeStartIndex))
                         .isEqualTo(result);
             }
         }
