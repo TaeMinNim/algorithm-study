@@ -2,7 +2,32 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
+        System.out.println(getOneLineVariable("int& a*[]&, b, c*;"));
+    }
 
+    public static List<String> getOneLineVariable(String input){
+        int commonTypeDivisionIndex = findCommonTypeDivisionIndex(input);
+        String commonType = input.substring(0, commonTypeDivisionIndex);
+        String restString = input.substring(commonTypeDivisionIndex);
+
+        List<String> oneLineVariableList = new ArrayList<>();
+
+        while(!restString.equals(";")) {
+            int startIndex = findVariableStartIndex(restString);
+            int endIndex = findVariableEndIndex(restString);
+            String variable = getVariable(restString, startIndex, endIndex);
+
+            restString = restString.substring(endIndex);
+            System.out.println(restString);
+
+            int variableTypeStartIndex = findVariableTypeStartIndex(variable);
+            String variableType = getVariableType(variable, variableTypeStartIndex);
+            String variableName = getVariableName(variable, variableTypeStartIndex);
+            variableType = reverseVariableType(variableType);
+
+            oneLineVariableList.add(combineVariable(commonType, variableType, variableName));
+        }
+        return oneLineVariableList;
     }
 
     public static int findCommonTypeDivisionIndex(String input) {
