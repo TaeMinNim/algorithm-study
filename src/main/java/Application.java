@@ -15,4 +15,15 @@ public class Application {
     public static String getRestString(String input, int commonTypeDivisionIndex){
         return input.substring(commonTypeDivisionIndex);
     }
+
+    public static int findVariableStartIndex(String restString){
+        for (int i = 0; i < restString.length(); i++){
+            char c = restString.charAt(i);
+            if (c != ' '){
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
