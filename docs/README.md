@@ -53,7 +53,7 @@
 `int findVariableStartIndex(String restString)`
 - 변수 선언이 시작되는 지점의 인덱스를 반환한다
 
-`int findVariableEndIndex(String, restString, int startIndex)`
+`int findVariableEndIndex(String, restString)`
 - 변수 선언이 끝나는 지점의 인덱스를 반환한다
   - `,` 가 있는 인덱스
 
