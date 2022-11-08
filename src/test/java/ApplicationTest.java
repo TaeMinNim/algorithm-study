@@ -4,57 +4,61 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
 public class ApplicationTest {
-    @DisplayName("공통타입 구분자 인덱스 위치 반환 테스트")
+    @DisplayName("공백이 나올때까지 변수형을 읽어들인다. 이때 읽어들인 문자가 공통 변수형이다")
     @Nested
-    class findCommonTypeDivisionIndexTest{
-        @Test
-        void case1(){
-            String input = "int& a*[]&, b, c*;";
-            int result = 4;
+    class findCommonTypeTest {
+        @Nested
+        class findCommonTypeDivisionIndexTest {
+            @Test
+            void case1() {
+                String input = "int& a*[]&, b, c*;";
+                int result = 4;
 
-            assertThat(Application.findCommonTypeDivisionIndex(input))
-                    .isEqualTo(result);
+                assertThat(Application.findCommonTypeDivisionIndex(input))
+                        .isEqualTo(result);
+            }
+        }
+
+        @Nested
+        class getCommonTypeTest {
+            @Test
+            void case1() {
+                int commonTypeDivisionIndex = 4;
+                String input = "int& a*[]&, b, c*;";
+                String result = "int&";
+
+                assertThat(Application.getCommonType(input, commonTypeDivisionIndex))
+                        .isEqualTo(result);
+            }
+        }
+
+        @Nested
+        class getRestString {
+            @Test
+            void case1() {
+                int commonTypeDivisionIndex = 4;
+                String input = "int& a*[]&, b, c*;";
+                String result = " a*[]&, b, c*;";
+
+                assertThat(Application.getRestString(input, commonTypeDivisionIndex))
+                        .isEqualTo(result);
+            }
         }
     }
 
-    @DisplayName("공통 변수형 잘라내기 테스트")
+    @DisplayName("문자를 읽어들이다 공백 이외의 문자가 발견되면 `,`가 나오기 전까지가 선언하는 변수이다")
     @Nested
-    class getCommonTypeTest {
-        @Test
-        void case1() {
-            int commonTypeDivisionIndex = 4;
-            String input = "int& a*[]&, b, c*;";
-            String result = "int&";
+    class findVariableTest {
+        @Nested
+        class findVariableStartIndexTest {
+            @Test
+            void case1() {
+                String restString = " a*[]&, b, c*;";
+                int result = 1;
 
-            assertThat(Application.getCommonType(input, commonTypeDivisionIndex))
-                    .isEqualTo(result);
-        }
-    }
-
-    @DisplayName("공통 변수형 부분 제외, 나머지 문자열 반환 테스트")
-    @Nested
-    class getRestString {
-        @Test
-        void case1() {
-            int commonTypeDivisionIndex = 4;
-            String input = "int& a*[]&, b, c*;";
-            String result = " a*[]&, b, c*;";
-
-            assertThat(Application.getRestString(input, commonTypeDivisionIndex))
-                    .isEqualTo(result);
-        }
-    }
-
-    @DisplayName("변수 선언 시작점 찾기 메소드 테스트")
-    @Nested
-    class findVariableStartIndexTest{
-        @Test
-        void case1(){
-            String restString = " a*[]&, b, c*;";
-            int result = 1;
-
-            assertThat(Application.findVariableStartIndex(restString))
-                    .isEqualTo(result);
+                assertThat(Application.findVariableStartIndex(restString))
+                        .isEqualTo(result);
+            }
         }
     }
 }
