@@ -30,4 +30,8 @@ public class Application {
     public static int findVariableEndIndex(String restStaring){
         return restStaring.indexOf(',');
     }
+
+    public static String getVariable(String restString, int startIndex, int endIndex){
+        return restString.substring(startIndex, endIndex);
+    }
 }
