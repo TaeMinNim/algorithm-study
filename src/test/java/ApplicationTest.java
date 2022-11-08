@@ -68,6 +68,15 @@ public class ApplicationTest {
                 assertThat(Application.findVariableStartIndex(restString))
                         .isEqualTo(result);
             }
+
+            @Test
+            void case3() {
+                String restString = ", c*;";
+                int result = 2;
+
+                assertThat(Application.findVariableStartIndex(restString))
+                        .isEqualTo(result);
+            }
         }
 
         @Nested
@@ -84,6 +93,15 @@ public class ApplicationTest {
             @Test
             void case2(){
                 String restString = " c*;";
+                int result = 3;
+
+                assertThat(Application.findVariableEndIndex(restString))
+                        .isEqualTo(result);
+            }
+
+            @Test
+            void case3(){
+                String restString = ", b, c*;";
                 int result = 3;
 
                 assertThat(Application.findVariableEndIndex(restString))
@@ -115,6 +133,15 @@ public class ApplicationTest {
             void case1(){
                 String variable = "a*[]&";
                 int result = 1;
+
+                assertThat(Application.findVariableTypeStartIndex(variable))
+                        .isEqualTo(result);
+            }
+
+            @Test
+            void case2(){
+                String variable = "b";
+                int result = 0;
 
                 assertThat(Application.findVariableTypeStartIndex(variable))
                         .isEqualTo(result);
