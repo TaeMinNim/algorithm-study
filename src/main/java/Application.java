@@ -53,4 +53,8 @@ public class Application {
         return -1;
     }
 
+    public static String getVariableName(String variable, int variableTypeStartIndex){
+        return variable.substring(0, variableTypeStartIndex);
+    }
+
 }
