@@ -27,7 +27,7 @@ public class ApplicationTest {
             String result = "int&";
 
             assertThat(Application.getCommonType(commonTypeDivisionIndex)
-                    .isEqualTo(result);
+                    .isEqualTo(result));
         }
     }
 }
