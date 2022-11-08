@@ -72,5 +72,19 @@ public class ApplicationTest {
                         .isEqualTo(result);
             }
         }
+
+        @Nested
+        class getVariableTest{
+            @Test
+            void case1(){
+                String restString = " a*[]&, b, c*;";
+                int startIndex = 1;
+                int endIndex = 6;
+                String result = "a*[]&";
+
+                assertThat(Application.getVariable(restString, startIndex, endIndex))
+                        .isEqualTo(result);
+            }
+        }
     }
 }
