@@ -42,4 +42,15 @@ public class Application {
         return restString.substring(startIndex, endIndex);
     }
 
+    public static int findVariableTypeStartIndex(String variable){
+        for(int i = 0; i < variable.length(); i++){
+            char c = variable.charAt(i);
+            if(c == '&' || c == '[' || c == '*'){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
 }
