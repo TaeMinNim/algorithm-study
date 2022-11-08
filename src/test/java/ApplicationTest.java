@@ -71,6 +71,15 @@ public class ApplicationTest {
                 assertThat(Application.findVariableEndIndex(restString))
                         .isEqualTo(result);
             }
+
+            @Test
+            void case2(){
+                String restString = " c*;";
+                int result = 3;
+
+                assertThat(Application.findVariableEndIndex(restString))
+                        .isEqualTo(result);
+            }
         }
 
         @Nested
