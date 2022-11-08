@@ -23,9 +23,10 @@ public class ApplicationTest {
         @Test
         void case1() {
             int commonTypeDivisionIndex = 4;
+            String input = "int& a*[]&, b, c*;";
             String result = "int&";
 
-            assertThat(Application.getCommonType(commonTypeDivisionIndex))
+            assertThat(Application.getCommonType(input, commonTypeDivisionIndex))
                     .isEqualTo(result);
         }
     }
