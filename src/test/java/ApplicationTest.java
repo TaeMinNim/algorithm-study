@@ -100,7 +100,7 @@ public class ApplicationTest {
         @Nested
         class findTypeTest{
             @Nested
-            class findVariableNameIndexTest{
+            class findVariableTypeStartIndexTest{
                 @Test
                 void case1(){
                     String variable = "a*[]&";
