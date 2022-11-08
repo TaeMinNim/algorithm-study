@@ -66,10 +66,9 @@ public class ApplicationTest {
             @Test
             void case1(){
                 String restString = " a*[]&, b, c*;";
-                int startIndex = 1;
                 int result = 6;
 
-                assertThat(Application.findVariableEndIndex(restString, startIndex))
+                assertThat(Application.findVariableEndIndex(restString))
                         .isEqualTo(result);
             }
         }
