@@ -26,4 +26,8 @@ public class Application {
 
         return -1;
     }
+
+    public static int findVariableEndIndex(String restStaring){
+        return restStaring.indexOf(',');
+    }
 }
