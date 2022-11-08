@@ -2,7 +2,13 @@ import java.util.*;
 
 public class Application {
     public static void main(String[] args) {
-        System.out.println(getOneLineVariable("int& a*[]&, b, c*;"));
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.next();
+
+        List<String> oneLineVariable = getOneLineVariable("int& a*[]&, b, c*;");
+        for(String variable: oneLineVariable){
+            System.out.println(variable);
+        }
     }
 
     public static List<String> getOneLineVariable(String input){
@@ -16,14 +22,21 @@ public class Application {
             int startIndex = findVariableStartIndex(restString);
             int endIndex = findVariableEndIndex(restString);
             String variable = getVariable(restString, startIndex, endIndex);
-            System.out.println(variable);
             restString = restString.substring(endIndex);
 
             int variableTypeStartIndex = findVariableTypeStartIndex(variable);
-            String variableType = variable.substring(0, variableTypeStartIndex);
-            String variableName = variable.substring(variableTypeStartIndex);
-            variableType = reverseVariableType(variableType);
+            String variableName;
+            String variableType;
 
+            if(variableTypeStartIndex == 0) {
+                variableName = variable;
+                variableType = " ";
+            }else{
+                variableName = variable.substring(0, variableTypeStartIndex);
+                variableType = variable.substring(variableTypeStartIndex);
+            }
+
+            variableType = reverseVariableType(variableType);
             oneLineVariableList.add(combineVariable(commonType, variableType, variableName));
         }
         return oneLineVariableList;
@@ -110,6 +123,12 @@ public class Application {
     }
 
     public static String combineVariable(String commonType, String variableType, String variableName){
-        return String.format("%s%s %s;",commonType, variableType, variableName);
+        String combinedVariable;
+        if(variableType.equals(" ")){
+            combinedVariable = String.format("%s %s;",commonType, variableName);
+        }else{
+            combinedVariable = String.format("%s%s %s;",commonType, variableType, variableName);
+        }
+        return combinedVariable;
     }
 }
